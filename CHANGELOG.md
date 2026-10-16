@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — 2026-10-16
+
+- contracts/multisig/README.md: "Panic conditions reference" section (#93).
+  Contains a consolidated table of every panic message, followed by
+  per-function breakdown tables for `__constructor`, `submit`, `confirm`,
+  `revoke_confirmation`, `execute` (including internal action panics for
+  `AddOwner`, `RemoveOwner`, `UpdateThreshold`), `cancel`, and `get_proposal`.
+  Every `panic!()` call in `contracts/multisig/src/lib.rs` is covered.
+
 ### Added — 2026-10-15
 
 - contracts/vesting: `batch_create_schedule(env, params: Vec<CreateScheduleParams>) -> Vec<u64>`
