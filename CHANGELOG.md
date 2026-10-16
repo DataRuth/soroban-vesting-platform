@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — 2026-10-16
+
+- contracts/multisig/src/lib.rs: `/// doc comments` on all 12 public functions
+  (#94): `__constructor` (already had one), `submit` (already had one),
+  `confirm`, `revoke_confirmation`, `execute` (already had one), `cancel`,
+  `get_proposal`, `get_owners`, `get_threshold`, `proposal_count`,
+  `has_confirmed`, `is_owner`, `extend_ttl` (already had one). Each comment
+  states purpose, auth requirement, panic conditions, and return value.
+
 ### Added — 2026-10-15
 
 - contracts/vesting: `batch_create_schedule(env, params: Vec<CreateScheduleParams>) -> Vec<u64>`
