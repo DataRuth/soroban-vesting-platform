@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — 2026-10-16
+
+- scripts/deploy.sh (#78): replaced `cargo build -p <name> --target
+  wasm32-unknown-unknown --release` with `stellar contract build`; updated the
+  WASM path from `target/wasm32-unknown-unknown/release/` to
+  `target/wasm32v1-none/release/`; added a header comment directing users to
+  append constructor arguments after `--`; forwards extra positional arguments
+  to `stellar contract deploy` via `"$@"`.
+
+- README.md (#78): replaced the stale Quick-start note (which warned that
+  `scripts/deploy.sh` was out of date) with a note correctly describing
+  `make deploy-testnet` / `scripts/deploy.sh` as a convenience wrapper and
+  showing the `--` constructor-argument pattern.
+
 ### Added — 2026-10-15
 
 - contracts/vesting: `batch_create_schedule(env, params: Vec<CreateScheduleParams>) -> Vec<u64>`
