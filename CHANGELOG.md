@@ -7,19 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed — 2026-10-16
+### Added — 2026-10-16
 
-- scripts/deploy.sh (#78): replaced `cargo build -p <name> --target
-  wasm32-unknown-unknown --release` with `stellar contract build`; updated the
-  WASM path from `target/wasm32-unknown-unknown/release/` to
-  `target/wasm32v1-none/release/`; added a header comment directing users to
-  append constructor arguments after `--`; forwards extra positional arguments
-  to `stellar contract deploy` via `"$@"`.
+- contracts/vesting/README.md: "Rounding behavior" section (#96). Documents
+  that `vested_amount` uses integer (floor) division
+  (`elapsed * total_amount / total_duration`), explains dust accumulation until
+  schedule completion, includes a worked example (99-token / 100-second
+  schedule), and adds integrator notes. Linked from the `vested_amount` source
+  comment.
 
-- README.md (#78): replaced the stale Quick-start note (which warned that
-  `scripts/deploy.sh` was out of date) with a note correctly describing
-  `make deploy-testnet` / `scripts/deploy.sh` as a convenience wrapper and
-  showing the `--` constructor-argument pattern.
+- contracts/vesting/src/lib.rs: inline `// Note:` comment in `vested_amount()`
+  (#96). Points to the README "Rounding behavior" section and explains that the
+  fractional remainder (dust) is released only when `elapsed >= total_duration`.
 
 ### Added — 2026-10-15
 
